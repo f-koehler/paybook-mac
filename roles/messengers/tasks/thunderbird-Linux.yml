@@ -2,3 +2,5 @@
   ansible.builtin.package:
     name: thunderbird
     state: "{{ messengers.threema.installed | ternary('present', 'absent') }}"
+  become: true
+  become_user: root

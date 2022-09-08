@@ -2,5 +2,7 @@
   community.general.flatpak:
     name: org.telegram.desktop
     state: "{{ messengers.telegram.installed | ternary('present', 'absent') }}"
+  become: true
+  become_user: root
   notify:
     - Cleanup flatpaks.

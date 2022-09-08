@@ -2,5 +2,7 @@
   community.general.flatpak:
     name: im.riot.Riot
     state: "{{ messengers.element.installed | ternary('present', 'absent') }}"
+  become: true
+  become_user: root
   notify:
     - Cleanup flatpaks.

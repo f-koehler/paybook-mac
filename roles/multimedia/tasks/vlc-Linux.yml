@@ -2,5 +2,7 @@
   community.general.flatpak:
     name: org.videolan.VLC
     state: "{{ multimedia.vlc.installed | ternary('present', 'absent') }}"
+  become: true
+  become_user: root
   notify:
     - Cleanup flatpaks.

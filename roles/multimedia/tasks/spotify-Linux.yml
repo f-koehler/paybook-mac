@@ -2,5 +2,7 @@
   community.general.flatpak:
     name: com.spotify.Client
     state: "{{ multimedia.spotify.installed | ternary('present', 'absent') }}"
+  become: true
+  become_user: root
   notify:
     - Cleanup flatpaks.
