@@ -1,4 +1,4 @@
 - name: "{{ messengers.protonmail_bridge.installed | ternary('Install', 'Remove') }} Protonmail Bridge cask."
   community.general.homebrew_cask:
-    name: homebrew/cask/protonmail_bridge
+    name: homebrew/cask/protonmail-bridge
     state: "{{ messengers.protonmail_bridge.installed | ternary('present', 'absent') }}"

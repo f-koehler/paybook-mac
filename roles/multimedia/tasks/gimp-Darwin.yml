@@ -1,4 +1,4 @@
 - name: "{{ multimedia.gimp.installed | ternary('Install', 'Remove') }} Gimp cask."
   community.general.homebrew_cask:
-    name: /homebrew/cask/gimp
+    name: homebrew/cask/gimp
     state: "{{ multimedia.gimp.installed | ternary('present', 'absent') }}"

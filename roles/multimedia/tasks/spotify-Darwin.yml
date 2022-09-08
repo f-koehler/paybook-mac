@@ -1,4 +1,4 @@
 - name: "{{ multimedia.spotify.installed | ternary('Install', 'Remove') }} Spotify cask."
   community.general.homebrew_cask:
-    name: /homebrew/cask/spotify
+    name: homebrew/cask/spotify
     state: "{{ multimedia.spotify.installed | ternary('present', 'absent') }}"

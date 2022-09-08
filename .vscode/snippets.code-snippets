@@ -31,7 +31,7 @@
     "body": [
       "- name: \"{{ ${TM_DIRECTORY/.*\\/(.*)\\/tasks$/${1}/}.${1}.installed | ternary('Install', 'Remove') }} ${1/(.*)/${1:/capitalize}/} cask.\"",
       "  community.general.homebrew_cask:",
-      "    name: /homebrew/cask/${1}",
+      "    name: homebrew/cask/${1}",
       "    state: \"{{ ${TM_DIRECTORY/.*\\/(.*)\\/tasks$/${1}/}.${1}.installed | ternary('present', 'absent') }}\""
     ]
   }

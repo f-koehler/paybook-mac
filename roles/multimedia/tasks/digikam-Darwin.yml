@@ -1,4 +1,4 @@
 - name: "{{ multimedia.digikam.installed | ternary('Install', 'Remove') }} Digikam cask."
   community.general.homebrew_cask:
-    name: /homebrew/cask/digikam
+    name: homebrew/cask/digikam
     state: "{{ multimedia.digikam.installed | ternary('present', 'absent') }}"
