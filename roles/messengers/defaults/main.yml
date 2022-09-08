@@ -1,0 +1,17 @@
+messengers:
+  element:
+    installed: true
+  protonmail_bridge:
+    installed: true
+  signal:
+    installed: true
+  teams:
+    installed: true
+  telegram:
+    installed: true
+  threema:
+    installed: true
+  thunderbird:
+    installed: true
+  whatsapp:
+    installed: true

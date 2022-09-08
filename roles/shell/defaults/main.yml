@@ -1,0 +1,25 @@
+shell:
+  bat:
+    installed: true
+  direnv:
+    installed: true
+  exa:
+    installed: true
+  fzf:
+    installed: true
+  git:
+    installed: true
+  ncdu:
+    installed: true
+  starship:
+    installed: true
+  tmux:
+    installed: true
+  wget:
+    installed: true
+  zellij:
+    installed: true
+  zoxide:
+    installed: true
+  zsh:
+    installed: true

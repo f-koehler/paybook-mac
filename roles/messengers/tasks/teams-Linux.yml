@@ -1,0 +1,6 @@
+- name: "{{ messengers.teams.installed | ternary('Install', 'Remove') }} Teams flatpak."
+  community.general.flatpak:
+    name: com.microsoft.Teams
+    state: "{{ messengers.teams.installed | ternary('present', 'absent') }}"
+  notify:
+    - Cleanup flatpaks.

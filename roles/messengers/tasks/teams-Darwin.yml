@@ -1,0 +1,4 @@
+- name: "{{ messengers.teams.installed | ternary('Install', 'Remove') }} Teams cask."
+  community.general.homebrew_cask:
+    name: homebrew/cask/microsoft-teams
+    state: "{{ messengers.teams.installed | ternary('present', 'absent') }}"

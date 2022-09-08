@@ -1,0 +1,6 @@
+- name: "{{ messengers.threema.installed | ternary('Install', 'Remove') }} Signal flatpak."
+  community.general.flatpak:
+    name: ch.threema.threema-web-desktop
+    state: "{{ messengers.threema.installed | ternary('present', 'absent') }}"
+  notify:
+    - Cleanup flatpaks.

@@ -1,0 +1,4 @@
+- name: "{{ messengers.telegram.installed | ternary('Install', 'Remove') }} Telegram cask."
+  community.general.homebrew_cask:
+    name: homebrew/cask/telegram
+    state: "{{ messengers.telegram.installed | ternary('present', 'absent') }}"

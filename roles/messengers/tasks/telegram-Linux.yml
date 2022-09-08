@@ -1,0 +1,6 @@
+- name: "{{ messengers.telegram.installed | ternary('Install', 'Remove') }} Telegram flatpak."
+  community.general.flatpak:
+    name: org.telegram.desktop
+    state: "{{ messengers.telegram.installed | ternary('present', 'absent') }}"
+  notify:
+    - Cleanup flatpaks.

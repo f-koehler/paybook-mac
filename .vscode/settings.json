@@ -1,5 +1,6 @@
 {
   "yaml.schemas": {
-    "https://raw.githubusercontent.com/ansible-community/schemas/main/f/ansible-inventory.json": "file:///Users/fkoehler/Code/playbook-workstation/hosts.yml"
+    "https://raw.githubusercontent.com/ansible-community/schemas/main/f/ansible-inventory.json": "file:///Users/fkoehler/Code/playbook-workstation/hosts.yml",
+    "https://raw.githubusercontent.com/ansible-community/schemas/main/f/ansible.json#/$defs/tasks": "file:///home/fkoehler/code/playbook-mac/handlers.yml"
   }
 }

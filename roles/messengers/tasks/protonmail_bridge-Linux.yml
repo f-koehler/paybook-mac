@@ -1,0 +1,6 @@
+- name: "{{ messengers.protonmail_bridge.installed | ternary('Install', 'Remove') }} Protonmail Bridge flatpak."
+  community.general.flatpak:
+    name: ch.protonmail.protonmail-bridge
+    state: "{{ messengers.protonmail_bridge.installed | ternary('present', 'absent') }}"
+  notify:
+    - Cleanup flatpaks.

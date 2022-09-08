@@ -1,0 +1,14 @@
+- name: Load Messengers tasks.
+  ansible.builtin.include_tasks:
+    file: "{{ messenger }}-{{ ansible_system}}.yml"
+  loop:
+    - element
+    - protonmail_bridge
+    - signal
+    - teams
+    - telegram
+    - threema
+    - thunderbird
+    - whatsapp
+  loop_control:
+    loop_var: messenger

@@ -1,0 +1,6 @@
+- name: "{{ messengers.whatsapp.installed | ternary('Install', 'Remove') }} WhatsApp flatpak."
+  community.general.flatpak:
+    name: com.github.eneshecan.WhatsAppForLinux
+    state: "{{ messengers.whatsapp.installed | ternary('present', 'absent') }}"
+  notify:
+    - Cleanup flatpaks.

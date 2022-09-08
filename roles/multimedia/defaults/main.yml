@@ -1,0 +1,15 @@
+multimedia:
+  digikam:
+    installed: true
+  gimp:
+    installed: true
+  inkscape:
+    installed: true
+  jellyfin_media_player:
+    installed: true
+  spotify:
+    installed: true
+  tinymediamanager:
+    installed: true
+  vlc:
+    installed: true

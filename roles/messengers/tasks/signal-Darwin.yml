@@ -1,0 +1,4 @@
+- name: "{{ messengers.signal.installed | ternary('Install', 'Remove') }} Signal cask."
+  community.general.homebrew_cask:
+    name: homebrew/cask/signal
+    state: "{{ messengers.signal.installed | ternary('present', 'absent') }}"

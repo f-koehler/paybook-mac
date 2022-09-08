@@ -1,0 +1,4 @@
+- name: "{{ messengers.whatsapp.installed | ternary('Install', 'Remove') }} WhatsApp cask."
+  community.general.homebrew_cask:
+    name: homebrew/cask/whatsapp
+    state: "{{ messengers.whatsapp.installed | ternary('present', 'absent') }}"

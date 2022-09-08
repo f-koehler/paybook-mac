@@ -1,0 +1,6 @@
+- name: "{{ multimedia.vlc.installed | ternary('Install', 'Remove') }} VLC flatpak."
+  community.general.flatpak:
+    name: org.videolan.VLC
+    state: "{{ multimedia.vlc.installed | ternary('present', 'absent') }}"
+  notify:
+    - Cleanup flatpaks.

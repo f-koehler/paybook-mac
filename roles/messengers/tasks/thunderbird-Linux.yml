@@ -1,0 +1,4 @@
+- name: "{{ messengers.threema.installed | ternary('Install', 'Remove') }} Thunderbird package."
+  ansible.builtin.package:
+    name: thunderbird
+    state: "{{ messengers.threema.installed | ternary('present', 'absent') }}"

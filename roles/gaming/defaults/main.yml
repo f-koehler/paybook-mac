@@ -1,0 +1,4 @@
+gaming:
+  enabled: false
+  steam:
+    installed: true

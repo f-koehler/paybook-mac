@@ -1,0 +1,6 @@
+- name: "{{ multimedia.gimp.installed | ternary('Install', 'Remove') }} Gimp flatpak."
+  community.general.flatpak:
+    name: org.gimp.GIMP
+    state: "{{ multimedia.gimp.installed | ternary('present', 'absent') }}"
+  notify:
+    - Cleanup flatpaks.

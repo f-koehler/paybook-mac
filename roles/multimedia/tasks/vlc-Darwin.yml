@@ -1,0 +1,4 @@
+- name: "{{ multimedia.vlc.installed | ternary('Install', 'Remove') }} Vlc cask."
+  community.general.homebrew_cask:
+    name: /homebrew/cask/vlc
+    state: "{{ multimedia.vlc.installed | ternary('present', 'absent') }}"

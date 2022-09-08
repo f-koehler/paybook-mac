@@ -1,0 +1,7 @@
+- name: Load Gaming tasks.
+  ansible.builtin.include_tasks:
+    file: "{{ app }}-{{ ansible_system}}.yml"
+  loop:
+    - steam
+  loop_control:
+    loop_var: app

@@ -1,0 +1,6 @@
+- name: "{{ messengers.element.installed | ternary('Install', 'Remove') }} Element flatpak."
+  community.general.flatpak:
+    name: im.riot.Riot
+    state: "{{ messengers.element.installed | ternary('present', 'absent') }}"
+  notify:
+    - Cleanup flatpaks.

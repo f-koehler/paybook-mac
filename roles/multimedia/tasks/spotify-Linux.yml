@@ -1,0 +1,6 @@
+- name: "{{ multimedia.spotify.installed | ternary('Install', 'Remove') }} Spotify flatpak."
+  community.general.flatpak:
+    name: com.spotify.Client
+    state: "{{ multimedia.spotify.installed | ternary('present', 'absent') }}"
+  notify:
+    - Cleanup flatpaks.

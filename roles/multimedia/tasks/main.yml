@@ -1,0 +1,11 @@
+- name: Load Multimedia tasks.
+  ansible.builtin.include_tasks:
+    file: "{{ app }}-{{ ansible_system}}.yml"
+  loop:
+    - digikam
+    - gimp
+    - inkscape
+    - spotify
+    - vlc
+  loop_control:
+    loop_var: app

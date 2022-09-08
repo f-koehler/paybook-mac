@@ -1,86 +1,69 @@
 - hosts: workstations
-  tasks:
-    - name: Install homebrew formulae.
-      community.general.homebrew:
-        state: present
-        name:
-          - ansible
-          - ansible-language-server
-          - ansible-lint
-          - bat
-          - bitwarden-cli
-          - boost
-          - cmake
-          - direnv
-          - exa
-          - fzf
-          - gh
-          - git
-          - gpg
-          - gtk4
-          - hdf5
-          - htop
-          - latexindent
-          - mas
-          - md5sha1sum
-          - ncdu
-          - neovim
-          - nmap
-          - poppler
-          - pre-commit
-          - rustup
-          - starship
-          - tmux
-          - wget
-          - yamllint
-          - yarn
-          - yarn-completion
-          - zellij
-          - zoxide
-          - zsh
-    - name: Tap external homebrew repositories.
-      community.general.homebrew_tap:
-        state: present
-        name: homebrew/cask-fonts
-    - name: Install homebrew casks.
-      community.general.homebrew_cask:
-        state: present
-        name:
-          - homebrew/cask-fonts/font-hack-nerd-font
-          - homebrew/cask/alacritty
-          - homebrew/cask/android-file-transfer
-          - homebrew/cask/bitwarden
-          - homebrew/cask/brave-browser
-          - homebrew/cask/digikam
-          - homebrew/cask/docker
-          - homebrew/cask/element
-          - homebrew/cask/fig
-          - homebrew/cask/flutter
-          - homebrew/cask/gimp
-          - homebrew/cask/inkscape
-          - homebrew/cask/istat-menus
-          - homebrew/cask/iterm2
-          - homebrew/cask/jellyfin-media-player
-          - homebrew/cask/libreoffice
-          - homebrew/cask/mactex
-          - homebrew/cask/microsoft-teams
-          - homebrew/cask/nextcloud
-          - homebrew/cask/parallels
-          - homebrew/cask/protonmail-bridge
-          - homebrew/cask/spotify
-          - homebrew/cask/steam
-          - homebrew/cask/threema
-          - homebrew/cask/thunderbird
-          - homebrew/cask/tinymediamanager
-          - homebrew/cask/visual-studio-code
-          - homebrew/cask/warp
-          - homebrew/cask/xquartz
-          - homebrew/cask/zoom
-          - homebrew/cask/zotero
-    - name: Install App Store apps.
-      community.general.mas:
-        id:
-          - 409183694 # Keynote
-          - 1475387142 # Tailscale
-          - 441258766 # Magnet
-        state: present
+  handlers:
+    - ansible.builtin.import_tasks: handlers.yml
+  roles:
+    - messengers
+    - multimedia
+    - gaming
+  # tasks:
+  # - name: Install homebrew formulae.
+  #   community.general.homebrew:
+  #     state: present
+  #     name:
+  #       - ansible
+  #       - ansible-language-server
+  #       - ansible-lint
+  #       - bitwarden-cli
+  #       - boost
+  #       - cmake
+  #       - gh
+  #       - gpg
+  #       - gtk4
+  #       - hdf5
+  #       - htop
+  #       - latexindent
+  #       - mas
+  #       - md5sha1sum
+  #       - neovim
+  #       - nmap
+  #       - poppler
+  #       - pre-commit
+  #       - rustup
+  #       - wget
+  #       - yamllint
+  #       - yarn
+  #       - yarn-completion
+  # - name: Tap external homebrew repositories.
+  #   community.general.homebrew_tap:
+  #     state: present
+  #     name: homebrew/cask-fonts
+  # - name: Install homebrew casks.
+  #   community.general.homebrew_cask:
+  #     state: present
+  #     name:
+  #       - homebrew/cask-fonts/font-hack-nerd-font
+  #       - homebrew/cask/alacritty
+  #       - homebrew/cask/android-file-transfer
+  #       - homebrew/cask/bitwarden
+  #       - homebrew/cask/brave-browser
+  #       - homebrew/cask/docker
+  #       - homebrew/cask/fig
+  #       - homebrew/cask/flutter
+  #       - homebrew/cask/istat-menus
+  #       - homebrew/cask/iterm2
+  #       - homebrew/cask/libreoffice
+  #       - homebrew/cask/mactex
+  #       - homebrew/cask/nextcloud
+  #       - homebrew/cask/parallels
+  #       - homebrew/cask/visual-studio-code
+  #       - homebrew/cask/warp
+  #       - homebrew/cask/xquartz
+  #       - homebrew/cask/zoom
+  #       - homebrew/cask/zotero
+  # - name: Install App Store apps.
+  #   community.general.mas:
+  #     id:
+  #       - 409183694 # Keynote
+  #       - 1475387142 # Tailscale
+  #       - 441258766 # Magnet
+  #     state: present

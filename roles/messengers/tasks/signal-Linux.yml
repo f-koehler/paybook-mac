@@ -1,0 +1,6 @@
+- name: "{{ messengers.signal.installed | ternary('Install', 'Remove') }} Signal flatpak."
+  community.general.flatpak:
+    name: org.signal.Signal
+    state: "{{ messengers.signal.installed | ternary('present', 'absent') }}"
+  notify:
+    - Cleanup flatpaks.

@@ -1,0 +1,13 @@
+- name: "{{ (gaming.enabled and gaming.steam.installed) | ternary('Install', 'Remove') }} Steam flatpak."
+  community.general.flatpak:
+    name: com.valvesoftware.Steam
+    state: "{{ (gaming.enabled and gaming.steam.installed) | ternary('present', 'absent') }}"
+  notify:
+    - Cleanup flatpaks.
+
+- name: "{{ (gaming.enabled and gaming.steam.installed) | ternary('Install', 'Remove') }} Proton GE flatpak."
+  community.general.flatpak:
+    name: com.valvesoftware.Steam.CompatibilityTool.Proton-GE
+    state: "{{ (gaming.enabled and gaming.steam.installed) | ternary('present', 'absent') }}"
+  notify:
+    - Cleanup flatpaks.

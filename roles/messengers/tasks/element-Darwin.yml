@@ -1,0 +1,4 @@
+- name: "{{ messengers.element.installed | ternary('Install', 'Remove') }} Element cask."
+  community.general.homebrew_cask:
+    name: homebrew/cask/element
+    state: "{{ messengers.element.installed | ternary('present', 'absent') }}"

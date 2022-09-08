@@ -1,0 +1,6 @@
+- name: "{{ multimedia.inkscape.installed | ternary('Install', 'Remove') }} Inkscape flatpak."
+  community.general.flatpak:
+    name: org.inkscape.Inkscape
+    state: "{{ multimedia.inkscape.installed | ternary('present', 'absent') }}"
+  notify:
+    - Cleanup flatpaks.

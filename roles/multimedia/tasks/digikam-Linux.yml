@@ -1,0 +1,6 @@
+- name: "{{ multimedia.digikam.installed | ternary('Install', 'Remove') }} Digikam flatpak."
+  community.general.flatpak:
+    name: org.kde.digikam
+    state: "{{ multimedia.digikam.installed | ternary('present', 'absent') }}"
+  notify:
+    - Cleanup flatpaks.

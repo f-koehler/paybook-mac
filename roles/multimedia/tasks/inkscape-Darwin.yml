@@ -1,0 +1,4 @@
+- name: "{{ multimedia.inkscape.installed | ternary('Install', 'Remove') }} Inkscape cask."
+  community.general.homebrew_cask:
+    name: /homebrew/cask/inkscape
+    state: "{{ multimedia.inkscape.installed | ternary('present', 'absent') }}"

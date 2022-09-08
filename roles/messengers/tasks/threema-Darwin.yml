@@ -1,0 +1,4 @@
+- name: "{{ messengers.threema.installed | ternary('Install', 'Remove') }} Threema cask."
+  community.general.homebrew_cask:
+    name: homebrew/cask/thrrema
+    state: "{{ messengers.threema.installed | ternary('present', 'absent') }}"
