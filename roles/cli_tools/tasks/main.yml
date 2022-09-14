@@ -3,5 +3,6 @@
     file: "{{ tasks }}"
   with_first_found:
     - "tasks-{{ ansible_distribution }}.yml"
+    - "tasks-{{ ansible_system }}.yml"
   loop_control:
     loop_var: tasks

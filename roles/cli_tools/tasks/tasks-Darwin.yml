@@ -1,0 +1,7 @@
+- name: Install formulae.
+  community.general.homebrew:
+    name: "{{ tool.value.package_name.brew | default(tool.key) }}"
+    state: "{{ tool.value['installed'] | ternary('present', 'absent') }}"
+  loop: "{{ cli_tools | dict2items }}"
+  loop_control:
+    loop_var: tool
