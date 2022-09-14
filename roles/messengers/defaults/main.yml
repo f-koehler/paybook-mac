@@ -6,7 +6,7 @@ messengers:
   signal:
     installed: true
   teams:
-    installed: true
+    installed: false
   telegram:
     installed: true
   threema:

@@ -1,7 +1,13 @@
 - hosts: workstations
   handlers:
     - ansible.builtin.import_tasks: handlers.yml
+  # pre_tasks:
+  #   - name: Load flatpak role.
+  #     ansible.builtin.include_role:
+  #       name: flatpak
+  #     when: "ansible_system == 'Linux'"
   roles:
+    # - cli_tools
     - messengers
     - multimedia
     - gaming
