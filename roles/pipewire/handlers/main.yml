@@ -1,0 +1,5 @@
+- name: Restart pipewire-pulse.
+  ansible.builtin.systemd:
+    name: pipewire-pulse.service
+    scope: user
+    state: restarted

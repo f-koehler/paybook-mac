@@ -1,0 +1,37 @@
+- name: Remove PulseAudio.
+  ansible.builtin.package:
+    name:
+      - pulseaudio
+      - pulseaudio-alsa
+      - pulseaudio-bluetooth
+    state: absent
+  become: true
+  notify: Restart pipewire-pulse.
+
+- name: Remove default session manager.
+  ansible.builtin.package:
+    name:
+      - pipewire-media-session
+    state: absent
+  become: true
+  notify: Restart pipewire-pulse.
+
+- name: Install pipewire packages.
+  ansible.builtin.package:
+    name:
+      - pipewire
+      - wireplumber
+      - pipewire-alsa
+      - pipewire-pulse
+      - pipewire-jack
+      - gst-plugin-pipewire
+      - pipewire-v4l2
+  become: true
+  notify: Restart pipewire-pulse.
+
+- name: Enable pipewire-pulse.
+  ansible.builtin.systemd:
+    name: pipewire-pulse.socket
+    scope: user
+    state: started
+    enabled: true
