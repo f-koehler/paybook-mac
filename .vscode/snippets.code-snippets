@@ -22,7 +22,9 @@
       "- name: \"{{ ${TM_DIRECTORY/.*\\/(.*)\\/tasks$/${1}/}.${1/.*\\.(.*)/${1:/downcase}/}.installed | ternary('Install', 'Remove') }} ${1/.*\\.(.*)/${1:/capitalize}/} flatpak.\"",
       "  community.general.flatpak:",
       "    name: ${1}",
-      "    state: \"{{ ${TM_DIRECTORY/.*\\/(.*)\\/tasks$/${1}/}.${1/.*\\.(.*)/${1:/downcase}/}.installed | ternary('present', 'absent') }}\""
+      "    state: \"{{ ${TM_DIRECTORY/.*\\/(.*)\\/tasks$/${1}/}.${1/.*\\.(.*)/${1:/downcase}/}.installed | ternary('present', 'absent') }}\"",
+      "    method: {{ flatpak.method }}",
+      "   become: \"{{ flatpak.method == 'system' }}\""
     ]
   },
   "Cask install": {
@@ -32,9 +34,7 @@
       "- name: \"{{ ${TM_DIRECTORY/.*\\/(.*)\\/tasks$/${1}/}.${1}.installed | ternary('Install', 'Remove') }} ${1/(.*)/${1:/capitalize}/} cask.\"",
       "  community.general.homebrew_cask:",
       "    name: homebrew/cask/${1}",
-      "    state: \"{{ ${TM_DIRECTORY/.*\\/(.*)\\/tasks$/${1}/}.${1}.installed | ternary('present', 'absent') }}\"",
-      "    method: {{ flatpak.method }}",
-      "   become: true"
+      "    state: \"{{ ${TM_DIRECTORY/.*\\/(.*)\\/tasks$/${1}/}.${1}.installed | ternary('present', 'absent') }}\""
     ]
   }
 }
