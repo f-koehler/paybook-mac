@@ -7,7 +7,7 @@
   #       name: flatpak
   #     when: "ansible_system == 'Linux'"
   roles:
-    # - cli_tools
+    - cli_tools
     - messengers
     - multimedia
     - gaming

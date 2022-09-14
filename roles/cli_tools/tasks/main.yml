@@ -1,0 +1,7 @@
+- name: Load cli_tools tasks.
+  ansible.builtin.include_tasks:
+    file: "{{ tasks }}"
+  with_first_found:
+    - "tasks-{{ ansible_distribution }}.yml"
+  loop_control:
+    loop_var: tasks

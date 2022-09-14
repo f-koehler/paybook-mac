@@ -1,4 +1,4 @@
-shell:
+cli_tools:
   bat:
     installed: true
   direnv:
