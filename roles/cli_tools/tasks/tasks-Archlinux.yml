@@ -1,6 +1,6 @@
 - name: Install packages.
   ansible.builtin.package:
-    name: "{{ tool.key }}"
+    name: "{{ tool.value.package_name.archlinux | default(tool.key) }}"
     state: "{{ tool.value['installed'] | ternary('present', 'absent') }}"
   become: true
   loop: "{{ cli_tools | dict2items }}"

@@ -9,6 +9,16 @@ cli_tools:
     installed: true
   git:
     installed: true
+  github-cli:
+    installed: true
+    package_name:
+      brew: gh
+  gnupg:
+    installed: true
+  htop:
+    installed: true
+  neovim:
+    installed: true
   ncdu:
     installed: true
   starship:
