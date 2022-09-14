@@ -1,0 +1,3 @@
+desktop_portals:
+  # values: kde, lxqt, wlr and gnome
+  implementation: gnome

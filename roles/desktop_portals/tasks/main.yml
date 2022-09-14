@@ -1,0 +1,22 @@
+- name: Install desktop portals.
+  ansible.builtin.package:
+    name:
+      - "xdg-desktop-portal-{{ desktop_portals.implementation }}"
+      - xdg-desktop-portal
+  become: true
+  notify: Restart desktop portals.
+
+- name: Install optional GNOME portal dependencies.
+  ansible.builtin.package:
+    name:
+      - evince
+  become: true
+  when: desktop_portals.implementation == 'gnome'
+  notify: Restart desktop portals.
+
+- name: Enable GNOME desktop portals.
+  ansible.builtin.systemd:
+    name: xdg-desktop-portal.service
+    state: started
+    enabled: true
+    scope: user

@@ -1,0 +1,3 @@
+flatpak:
+  # values: system, user
+  method: system

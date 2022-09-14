@@ -1,0 +1,5 @@
+- name: Restart desktop portals.
+  ansible.builtin.systemd:
+    name: xdg-desktop-portal.service
+    state: restarted
+    scope: user

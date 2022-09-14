@@ -1,11 +1,16 @@
 - hosts: workstations
   handlers:
     - ansible.builtin.import_tasks: handlers.yml
-  # pre_tasks:
-  #   - name: Load flatpak role.
-  #     ansible.builtin.include_role:
-  #       name: flatpak
-  #     when: "ansible_system == 'Linux'"
+  pre_tasks:
+    - name: Load Linux roles.
+      ansible.builtin.include_role:
+        name: "{{ role }}"
+      loop:
+        - desktop_portals
+        - flatpak
+      loop_control:
+        loop_var: role
+      when: "ansible_system == 'Linux'"
   roles:
     - cli_tools
     - messengers
@@ -22,20 +27,15 @@
   #       - bitwarden-cli
   #       - boost
   #       - cmake
-  #       - gh
-  #       - gpg
   #       - gtk4
   #       - hdf5
-  #       - htop
   #       - latexindent
   #       - mas
   #       - md5sha1sum
-  #       - neovim
   #       - nmap
   #       - poppler
   #       - pre-commit
   #       - rustup
-  #       - wget
   #       - yamllint
   #       - yarn
   #       - yarn-completion
