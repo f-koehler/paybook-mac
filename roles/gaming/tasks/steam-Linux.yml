@@ -2,8 +2,8 @@
   community.general.flatpak:
     name: com.valvesoftware.Steam
     state: "{{ (gaming.enabled and gaming.steam.installed) | ternary('present', 'absent') }}"
-  become: true
-  become_user: root
+    method: "{{ flatpak.method }}"
+  become: "{{ flatpak.method == 'system' }}"
   notify:
     - Cleanup flatpaks.
 
@@ -11,7 +11,7 @@
   community.general.flatpak:
     name: com.valvesoftware.Steam.CompatibilityTool.Proton-GE
     state: "{{ (gaming.enabled and gaming.steam.installed) | ternary('present', 'absent') }}"
-  become: true
-  become_user: root
+    method: "{{ flatpak.method }}"
+  become: "{{ flatpak.method == 'system' }}"
   notify:
     - Cleanup flatpaks.

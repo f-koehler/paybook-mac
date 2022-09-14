@@ -2,7 +2,7 @@
   community.general.flatpak:
     name: org.kde.digikam
     state: "{{ multimedia.digikam.installed | ternary('present', 'absent') }}"
-  become: true
-  become_user: root
+    method: "{{ flatpak.method }}"
+  become: "{{ flatpak.method == 'system' }}"
   notify:
     - Cleanup flatpaks.

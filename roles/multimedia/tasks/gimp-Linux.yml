@@ -2,7 +2,7 @@
   community.general.flatpak:
     name: org.gimp.GIMP
     state: "{{ multimedia.gimp.installed | ternary('present', 'absent') }}"
-  become: true
-  become_user: root
+    method: "{{ flatpak.method }}"
+  become: "{{ flatpak.method == 'system' }}"
   notify:
     - Cleanup flatpaks.

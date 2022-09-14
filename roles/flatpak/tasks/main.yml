@@ -12,3 +12,7 @@
     flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
     method: "{{ flatpak.method }}"
   become: true
+
+- name: Export flatpak defaults.
+  ansible.builtin.set_fact:
+    flatpak: "{{ flatpak }}"

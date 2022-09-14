@@ -33,8 +33,8 @@
       "  community.general.homebrew_cask:",
       "    name: homebrew/cask/${1}",
       "    state: \"{{ ${TM_DIRECTORY/.*\\/(.*)\\/tasks$/${1}/}.${1}.installed | ternary('present', 'absent') }}\"",
-      "   become: true",
-      "   become_user: root"
+      "    method: {{ flatpak.method }}",
+      "   become: true"
     ]
   }
 }
