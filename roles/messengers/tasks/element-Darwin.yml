@@ -2,3 +2,4 @@
   community.general.homebrew_cask:
     name: homebrew/cask/element
     state: "{{ messengers.element.installed | ternary('present', 'absent') }}"
+  become: true

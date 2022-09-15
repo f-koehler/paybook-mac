@@ -2,3 +2,4 @@
   community.general.homebrew_cask:
     name: homebrew/cask/steam
     state: "{{ gaming.steam.installed | ternary('present', 'absent') }}"
+  become: true

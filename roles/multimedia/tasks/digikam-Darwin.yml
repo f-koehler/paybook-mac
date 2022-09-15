@@ -2,3 +2,4 @@
   community.general.homebrew_cask:
     name: homebrew/cask/digikam
     state: "{{ multimedia.digikam.installed | ternary('present', 'absent') }}"
+  become: true

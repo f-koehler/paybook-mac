@@ -2,3 +2,4 @@
   community.general.homebrew_cask:
     name: homebrew/cask/spotify
     state: "{{ multimedia.spotify.installed | ternary('present', 'absent') }}"
+  become: true

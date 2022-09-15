@@ -2,3 +2,4 @@
   community.general.homebrew_cask:
     name: homebrew/cask/gimp
     state: "{{ multimedia.gimp.installed | ternary('present', 'absent') }}"
+  become: true

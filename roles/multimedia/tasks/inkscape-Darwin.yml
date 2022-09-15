@@ -2,3 +2,4 @@
   community.general.homebrew_cask:
     name: homebrew/cask/inkscape
     state: "{{ multimedia.inkscape.installed | ternary('present', 'absent') }}"
+  become: true

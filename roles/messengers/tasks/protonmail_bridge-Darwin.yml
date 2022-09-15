@@ -2,3 +2,4 @@
   community.general.homebrew_cask:
     name: homebrew/cask/protonmail-bridge
     state: "{{ messengers.protonmail_bridge.installed | ternary('present', 'absent') }}"
+  become: true

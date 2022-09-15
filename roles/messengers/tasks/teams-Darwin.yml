@@ -2,3 +2,4 @@
   community.general.homebrew_cask:
     name: homebrew/cask/microsoft-teams
     state: "{{ messengers.teams.installed | ternary('present', 'absent') }}"
+  become: true
